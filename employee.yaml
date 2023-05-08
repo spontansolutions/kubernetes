@@ -1,0 +1,31 @@
+Employee-Details:
+  - Employee: One
+    first_name: Ramakrishna
+    last_name: Kosaraju
+    age: 32
+    id_number: 1
+    role: Devops Engineer
+    hobbies:
+     - playing cricket
+     - Redading books
+    permanent: YES
+    About you: |
+      line One
+      line Two
+      line three
+      
+  - Employee: Two
+    first_name: Lasya
+    last_name: Moturi
+    age: 33
+    id_number: 2
+    role: FrontEnd Engineer
+    hobbies: [listening music, Reading books]
+    permanent: NO
+    # Multiline example
+    About you: |
+      line One
+      line Two
+      line three
+
+

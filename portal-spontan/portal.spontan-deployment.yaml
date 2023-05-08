@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: portal-spontan
+  labels:
+    app: portal-spontan
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: portal-spontan
+  template:
+    metadata:
+      labels:
+        app: portal-spontan
+    spec:
+      containers:
+        - name: portal-spontan
+          image: kosaraju333/portal-spontan:V1
+          ports:
+            - containerPort: 3000
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: portal-spontan-service
+spec:
+  selector:
+    app: portal-spontan
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+      nodePort: 30001
+
+
+
