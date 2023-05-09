@@ -1,0 +1,13 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: portal-spontan-ingress-external-service
+  namespace: spontansolutions
+spec:
+  rules:
+  - host: portal.spontan.com
+    http:
+      paths:
+      - backend:
+          serviceName: portal-spontan-internal-service
+          servicePort: 3000

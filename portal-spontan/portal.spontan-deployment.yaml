@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: portal-spontan
+  namespace: spontansolutions	
   labels:
     app: portal-spontan
 spec:
@@ -20,20 +21,36 @@ spec:
           ports:
             - containerPort: 3000
 ---
-
+############## Internal Service ##################
 apiVersion: v1
 kind: Service
 metadata:
-  name: portal-spontan-service
+  name: portal-spontan-internal-service
+  namespace: spontansolutions
 spec:
   selector:
     app: portal-spontan
-  type: LoadBalancer
   ports:
     - protocol: TCP
       port: 3000
       targetPort: 3000
-      nodePort: 30001
+
+---
+############## External Service ##################
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: portal-spontan-service
+#  namespace: spontansolutions
+#spec:
+#  selector:
+#    app: portal-spontan
+#  type: LoadBalancer
+#  ports:
+#    - protocol: TCP
+#      port: 3000
+#      targetPort: 3000
+#      nodePort: 30001
 
 
 
